@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+
 def get_birthdays_per_week(users):
     congrats = {"Monday": '',
                  "Tuesday": '',
@@ -8,8 +9,7 @@ def get_birthdays_per_week(users):
                  "Friday": ''
     }
 
-#    today_is = datetime.now().date()
-    today_is = datetime(2023, 12, 31).date()
+    today_is = datetime.now().date()
     day_of_week = int(today_is.strftime("%w"))
     next_monday = today_is + timedelta((8 - day_of_week)%7)
     next_friday = next_monday + timedelta(4)
@@ -38,15 +38,4 @@ def get_birthdays_per_week(users):
  
     print(f'Monday: {congrats["Monday"][:-2]}\nTuesday: {congrats["Tuesday"][:-2]}\nWednesday: {congrats["Wednesday"][:-2]}\nThursday: {congrats["Thursday"][:-2]}\nFriday: {congrats["Friday"][:-2]}')
 
-    return congrats
-
-
-
-users = [
-    {"name": "Billl Gates", "birthday": datetime(1955, 12, 30)},
-    {"name": "Bill Gates", "birthday": datetime(1955, 1, 1)},
-    {"name": "Bil Gates", "birthday": datetime(1955, 1, 2)},
-    {"name": "Bi Gates", "birthday": datetime(1955, 1, 4)},
-]
-
-congrats = get_birthdays_per_week(users)
+    return
