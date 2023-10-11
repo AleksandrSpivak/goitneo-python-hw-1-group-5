@@ -6,6 +6,7 @@ def parse_input(user_input):
     except:
         return "Invalid command."
 
+
 def add_contact(args, contacts):
     try:
         name, phone = args
@@ -13,6 +14,7 @@ def add_contact(args, contacts):
     except:
         return "Invalid contact."
     return "Contact added."
+
 
 def change_contact(args, contacts):
     try:
@@ -25,14 +27,18 @@ def change_contact(args, contacts):
     except:
         return "No such contact."
 
+
 def show_phone(args, contacts):
     try:
         name = args
         if name[0] in contacts:
             return contacts[name[0]]
+        else:
+            return "No such contact."
     except:
         return "No such contact."
-  
+
+
 def show_all(contacts):
     all_contacts = ''
     if len(contacts) >0:
@@ -41,6 +47,7 @@ def show_all(contacts):
         return all_contacts[:-1]
     else:
         return "Empty contact list"
+
 
 def main():
     contacts = {}
@@ -64,6 +71,7 @@ def main():
             print(show_all(contacts))
         else:
             print("Invalid command.")
+
 
 if __name__ == "__main__":
     main()
